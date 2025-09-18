@@ -2,7 +2,7 @@
 
 Este repositório contém testes automatizados de **login** na aplicação open source
 <a href="https://opensource-demo.orangehrmlive.com" target="_blank">OrangeHRM</a>, 
-criados com <a href="https://www.cypress.io/" target="_blank" style="color:black">**Cypress**</a>.
+criados com **Cypress**.
 
 ## Tecnologias utilizadas
 - <a href="https://www.cypress.io/" target="_blank">Cypress</a> para automação de testes E2E  
