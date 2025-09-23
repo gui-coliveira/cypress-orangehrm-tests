@@ -12,3 +12,36 @@ criados com **Cypress**.
 - ✅ Login com credenciais válidas (Admin / admin123) 
 
 - ❌ Login com credenciais inválidas (mensagem de erro exibida)
+
+---
+
+## 🔧 Como rodar o projeto
+
+### 1. Clonar o repositório
+```bash
+git clone https://github.com/gui-coliveira/cypress-orangehrm-tests.git
+````
+
+### 2. Acessar a pasta do projeto
+
+```bash
+cd cypress-orangehrm-tests
+```
+
+### 3. Instalar as dependências
+
+```bash
+npm install
+```
+
+### 4. Executar o Cypress:
+
+- Modo interativo (com interface):
+```bash
+npx cypress open
+```
+
+- Modo headless (sem interface):
+```bash
+npx cypress run
+```
