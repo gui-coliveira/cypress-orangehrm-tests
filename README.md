@@ -13,6 +13,8 @@ criados com **Cypress**.
 
 - ❌ Login com credenciais inválidas (mensagem de erro exibida)
 
+- 🔄 Atualização de informações do usuário
+
 ---
 
 ## 🔧 Como rodar o projeto
