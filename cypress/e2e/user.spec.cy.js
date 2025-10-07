@@ -42,9 +42,9 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.passwordInput).type(userData.userSuccess.password)
     cy.get(selectorList.loginButton).click()
     cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
-    cy.get(selectorList.dashboardGrid)
-
+    cy.get(selectorList.dashboardGrid).should('be.visible')
     cy.get(selectorList.myInfoButton).click()
+    cy.location('pathname').should('contain', '/web/index.php/pim/viewPersonalDetails/')
     cy.get(selectorList.firstNameInput).clear().type('First Name Test')
     cy.get(selectorList.middleNameInput).clear().type('Middle Name Test')
     cy.get(selectorList.lastNameInput).clear().type('Last Name Test')
@@ -55,6 +55,5 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.dateCloseInput).click()
     cy.get(selectorList.submitButton).eq(0).click()
     cy.get(selectorList.toastAlert).should('contain', 'Success')
-  
   })
 })
