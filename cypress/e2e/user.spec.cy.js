@@ -14,6 +14,9 @@ describe('Orange HRM Tests', () => {
     lastNameInput: '[name="lastName"]',
     dateInput: '[placeholder="yyyy-dd-mm"]',
     dateCloseInput: '.oxd-date-input-link.--close',
+    dropDownInput: '.oxd-select-text-input',
+    dropDownOption: '.oxd-select-dropdown',
+    genderField: '.--gender-grouped-field',
     genericInput: '.oxd-input--active',
     submitButton: '[type="submit"]',   
     toastAlert: '.oxd-text--toast-title',
@@ -53,7 +56,14 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.genericInput).eq(5).clear().type('0000000001')
     cy.get(selectorList.dateInput).eq(0).clear().type('2026-03-01')
     cy.get(selectorList.dateCloseInput).click()
+    cy.get(selectorList.dropDownInput).eq(0).click()
+    cy.get(selectorList.dropDownOption).contains('Brazilian').click()
+    cy.get(selectorList.dropDownInput).eq(1).click()
+    cy.get(selectorList.dropDownOption).contains('Married').click()
+    cy.get(selectorList.dateInput).eq(1).clear().type('1999-13-06')
+    cy.get(selectorList.dateCloseInput).click()
+    cy.get(selectorList.genderField).contains('Male').click()
     cy.get(selectorList.submitButton).eq(0).click()
     cy.get(selectorList.toastAlert).should('contain', 'Success')
-  })
+   })
 })
