@@ -10,6 +10,18 @@ const dashboardPage = new DashboardPage()
 const menuPage = new MenuPage()
 const myInfoPage = new MyInfoPage()
 const chance = new Chance()
+const maritalStatus = chance.pickone(["Single", "Married", "Other"])
+const gender = chance.pickone(["Male", "Female"])
+
+function getRandomFormattedDate(setRandomMin, setRandomMax) {
+  const randomDate = chance.date({
+    year: chance.year({ min: setRandomMin, max: setRandomMax }),
+  })
+  return `${randomDate.getFullYear()}-${String(randomDate.getDate()).padStart(
+    2,
+    "0"
+  )}-${String(randomDate.getMonth() + 1).padStart(2, "0")}`
+}
 
 describe("User Orange HRM Tests", () => {
   it("User Info Update - Success", () => {
@@ -29,13 +41,14 @@ describe("User Orange HRM Tests", () => {
       chance.integer({ min: 1111111111, max: 9999999999 }),
       chance.integer({ min: 1111111111, max: 9999999999 }),
       chance.integer({ min: 1111111111, max: 9999999999 }),
-      `${chance.year({ min: 2026, max: 2050 })}` +
-        "-" +
-        `${chance.integer({ min: 1, max: 28 })}` +
-        "-" +
-        `${chance.integer({ min: 1, max: 28 })}`
+      getRandomFormattedDate(2026, 2050)
     )
-    myInfoPage.fillStatus("Brazilian", "Married", "1999-13-06", "Male")
+    myInfoPage.fillStatus(
+      "Brazilian",
+      maritalStatus,
+      getRandomFormattedDate(1950, 2007),
+      gender
+    )
     myInfoPage.saveForm()
   })
 })
